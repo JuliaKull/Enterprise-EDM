@@ -14,6 +14,6 @@ import org.springframework.stereotype.Repository;
 public interface BusinessUnitRepository extends JpaRepository<BusinessUnit, Long>,PagingAndSortingRepository<BusinessUnit, Long>,
         JpaSpecificationExecutor<BusinessUnit> {
 
-    @Query("SELECT e from BusinessUnit e where e.status = 'ACTIVE'")
+    @Query("SELECT e from BusinessUnit e where e.active = true ")
     Page<BusinessUnit> findAllBusinessUnit(Specification<BusinessUnit> businessUnitSpecification, Pageable pageable);
 }

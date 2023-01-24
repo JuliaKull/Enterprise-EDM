@@ -32,7 +32,7 @@ public class LocationController {
         return ResponseEntity.ok().body(locationService.update(locationDto));
     }
 
-    @PutMapping(value = ENDPOINT_NAME, produces = {"application/json"}, consumes = {"application/json"})
+    @PatchMapping (value = ENDPOINT_NAME, produces = {"application/json"}, consumes = {"application/json"})
     public ResponseEntity<LocationDto> partialUpdate(@RequestBody LocationDto locationDto) {
         log.debug("Http request to partialUpdate {} with request data: {} ",ENDPOINT_NAME,locationDto);
         return ResponseEntity.ok().body(locationService.partialUpdate(locationDto));

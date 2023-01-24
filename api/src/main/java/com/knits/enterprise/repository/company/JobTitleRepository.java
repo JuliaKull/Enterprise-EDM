@@ -13,6 +13,6 @@ import org.springframework.stereotype.Repository;
 public interface JobTitleRepository extends PagingAndSortingRepository<JobTitle, Long>,
         JpaSpecificationExecutor<JobTitle> {
 
-    @Query("SELECT e from BusinessUnit e where e.status = 'ACTIVE'")
+    @Query("SELECT e from JobTitle e where e.active = true ")
     Page<JobTitle> findAllJobTitles(Specification<JobTitle> jobTitleSpecification, Pageable pageable);
 }

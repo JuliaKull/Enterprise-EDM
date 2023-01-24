@@ -32,7 +32,7 @@ public abstract class AbstractOrganizationStructure extends AbstractEntity imple
     @Column(name = "end_date")
     private LocalDateTime endDate;
 
-    @Column(name = "active", columnDefinition = "boolean default false")
+    @Column(name = "active", columnDefinition = "boolean default true")
     private boolean active;
 
     @ManyToOne(fetch = FetchType.LAZY)

@@ -13,7 +13,7 @@ import org.springframework.stereotype.Repository;
 public interface CostCenterRepository extends PagingAndSortingRepository<CostCenter, Long>,
         JpaSpecificationExecutor<CostCenter> {
 
-    @Query("SELECT e from CostCenter e where e.status = 'ACTIVE'")
+    @Query("SELECT e from CostCenter e where e.active = true ")
     Page<CostCenter> findAllCostCenters(Specification<CostCenter> costCenterSpecification, Pageable pageable);
 
 

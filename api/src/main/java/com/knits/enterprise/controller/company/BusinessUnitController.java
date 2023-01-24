@@ -32,7 +32,7 @@ public class BusinessUnitController {
         return ResponseEntity.ok().body(businessUnitService.updateBusinessUnit(businessUnitDto));
     }
 
-    @PutMapping(value = ENDPOINT_NAME, produces = {"application/json"}, consumes = {"application/json"})
+    @PatchMapping(value = ENDPOINT_NAME, produces = {"application/json"}, consumes = {"application/json"})
     public ResponseEntity<BusinessUnitDto> partialUpdate(@RequestBody BusinessUnitDto businessUnitDto) {
         log.debug("Http request to partialUpdate "+ENDPOINT_NAME);
         return ResponseEntity.ok().body(businessUnitService.partialUpdate(businessUnitDto));

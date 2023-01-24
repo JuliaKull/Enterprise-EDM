@@ -44,7 +44,7 @@ public class Employee implements Serializable {
     private LocalDateTime dateOfBirth;
 
     @Enumerated(EnumType.ORDINAL)
-    @Column(columnDefinition = "ENUM('MALE', 'FEMALE')")
+    @Column(columnDefinition = "enum('MALE', 'FEMALE')")
     private Gender gender;
 
     @Column(name = "start_date", nullable = false)
@@ -72,7 +72,7 @@ public class Employee implements Serializable {
             fetch = FetchType.LAZY,
             optional = false
     )
-    @JoinColumn(name = "business_unit", referencedColumnName = "business_unit_id")
+    @JoinColumn(name = "business_unit", referencedColumnName = "id")
     private BusinessUnit businessUnit;
 
 
@@ -120,6 +120,12 @@ public class Employee implements Serializable {
     @JoinColumn(name = "solid_line_manager", referencedColumnName = "id", nullable = false)
     private Employee solidLineManager;
 
+    @OneToOne(
+            fetch = FetchType.LAZY,
+            optional = false
+    )
+    @JoinColumn(name = "group", referencedColumnName = "id")
+    private Group group;
 
 
 }

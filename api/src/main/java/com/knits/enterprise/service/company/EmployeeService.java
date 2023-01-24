@@ -11,6 +11,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 
 @Service
 @Transactional
@@ -20,6 +23,7 @@ public class EmployeeService {
 
     private final EmployeeMapper employeeMapper;
     private final EmployeeRepository employeeRepository;
+
 
     @Transactional
     public EmployeeDto saveNewEmployee(EmployeeDto employeeDto) {
@@ -49,6 +53,10 @@ public class EmployeeService {
         employeeRepository.delete(employee);
         return employeeMapper.toDto(employee);
 
+    }
+
+    public List<EmployeeDto> findAllByGroupId(Long groupId) {
+        return employeeRepository.findAllByGroupId(groupId).stream().map(employeeMapper::toDto).collect(Collectors.toList());
     }
 }
 

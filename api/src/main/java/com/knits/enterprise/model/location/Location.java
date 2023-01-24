@@ -43,7 +43,6 @@ public class Location implements Serializable {
     private String zipCode;
 
     @Enumerated(EnumType.STRING)
-    @ColumnDefault("OUR_PREMISES")
     @Builder.Default
     private OwnershipType ownership = OwnershipType.valueOf("OUR_PREMISES");
 

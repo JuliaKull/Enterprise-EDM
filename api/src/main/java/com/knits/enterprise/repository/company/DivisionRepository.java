@@ -15,7 +15,7 @@ import org.springframework.stereotype.Repository;
 public interface DivisionRepository extends PagingAndSortingRepository<Division, Long>,
         JpaSpecificationExecutor<Division> {
 
-    @Query("SELECT e from CostCenter e where e.status = 'ACTIVE'")
+    @Query("SELECT e from Division e where e.active = true ")
     Page<Division> findAllDivisions(Specification<Division> costCenterSpecification, Pageable pageable);
 
     interface DepartmentRepository extends JpaRepository<Department, Long> {
